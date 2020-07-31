@@ -207,4 +207,13 @@ class MirroredStrokedBoxView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity : Activity) : MirroredStrokedBoxView {
+            val view : MirroredStrokedBoxView = MirroredStrokedBoxView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
