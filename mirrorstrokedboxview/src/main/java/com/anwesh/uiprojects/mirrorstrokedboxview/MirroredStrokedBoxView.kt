@@ -182,4 +182,27 @@ class MirroredStrokedBoxView(ctx : Context) : View(ctx) {
         }
 
     }
+
+    data class Renderer(var view : MirroredStrokedBoxView) {
+
+        private val animator : Animator = Animator(view)
+        private val mbs : MirrorStrokedBox = MirrorStrokedBox(0)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            mbs.draw(canvas, paint)
+            animator.animate {
+                mbs.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            mbs.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
