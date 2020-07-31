@@ -50,7 +50,7 @@ fun Canvas.drawMSBNode(i : Int, scale : Float, paint : Paint) {
     save()
     translate(w / 2, h / 2)
     for (j in 0..1) {
-        drawMirrorStrokeBox(i, scale, w, h, paint)
+        drawMirrorStrokeBox(j, scale, w, h, paint)
     }
     restore()
 }
